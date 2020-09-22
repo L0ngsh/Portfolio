@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    transition: all 0.3s;
+}
+
+section, footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.topbar, footer {
+    background-color: #0e0b16;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    padding: 10px;
+}
+
+.container {
+    max-width: 1500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.row {
+    flex-direction: row;
+}
+
+.column {
+    flex-direction: column;
+}
+
+.name {
+    padding: 10px 0;
+    font-size: 40px;
+    color: #e7dfdd;
+}
+
+.projectsList {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+}
+
+.projectsList ul {
+    padding: 0;
+    flex: 1;
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.project {
+    width: 310px;
+    min-height: 100px;
+    margin: 5px;
+    padding: 5px;
+    border: solid 1px #0e0b16;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.projectTitle {
+    text-decoration: none;
+    color: #4717f6;
+    font-size: 16px;
+}
+
+.projectTitle:hover {
+    color: #1b085e;
+    font-size: 18px;
+}
+
+.projectDescription {
+    margin: 10px 0;
+    font-size: 15px;
+    color: #0e0b16;
+    text-align: center;
+}
+
+.projectLanguage {
+    color: #a239ca;
+    font-size: 16px;
+}
+
+.contact {
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 400px;
+}
+
+.email {
+    color: #e7dfdd;
+    font-size: 20px;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 10px;
+} 
+
+.socialItem img {
+    width: 40px;
+}
+
+@media only screen and (max-width:460px) {
+    .contact {
+        flex-direction: column;
+    }
+
+    .social {
+        justify-content: space-around;
+        padding: 0;
+    }
+}
+
+@media only screen and (max-width:420px) {
+    .name {
+        font-size: 30px;
+    }
+}
