@@ -1,8 +1,8 @@
 <?php
 //Change contact informations
 $email = "gilbersoncfjunior@gmail.com";
-$githubUserName = "L0ngsh";
-$instagramUserName = "l0ng.sh";
+$githubUserName = "l0ngsh";
+$instagramUserName = "gilberson.sh";
 $githubProfileLink = "https://github.com/".$githubUserName;
 $instagramProfileLink = "https://www.instagram.com/".$instagramUserName;
 

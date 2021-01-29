@@ -6,77 +6,99 @@ include "requestAPI.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Short description about your site">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <meta charset="UTF-8">
+    <meta name="description" content="Gilberson Junior's Portfolio.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <meta name="application-name" content="Portfolio">
-
+    <title>Portfolio | Gilberson</title>
+    
     <link rel="shortcut icon" href="./assets/img/favicon.ico">
-
-    <title>Portfolio</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://kit.fontawesome.com/4d79059ebf.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <section class="topbar">
-        <div class="container row">
-            <div class="name">Name</div>
+    <header>
+        <div class="name"><span class="aquamarine">Gilberson Junior</span></div>
+        <ul class="menuList">
+            <li class="menuOptions">
+                <nav><a href="#home">Home</a></nav>
+            </li>
+            <li class="menuOptions">
+                <nav><a href="#projects">Projects</a></nav>
+            </li>
+        </ul>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <div class="homeDescription">
+                <h2>
+                        <span class="aquamarine">&lt;b&gt;</span>Hello<span class="aquamarine">&lt;/b&gt;</span><br>
+                        I'm <spam class="aquamarine">Gilberson</spam>, back-end and front-end Web Developper
+                </h2>
+                <div class="desc">
+                    <p>
+                        Lover of programming and cyber security, check my projects on github and feel free to contact me by <span class="aquamarine">email</span> or <span class="aquamarine">instagram</span>.
+                    </p>
+                </div>
+            </div>
+            <div class="homePicture">
+                <img src="assets/img/dev.jpeg" alt="Gilberson Junior">
+            </div>
         </div>
     </section>
 
-    <section class="main">
-        <div class="container colunm">
-            <div class="projectsList">
-                <ul>
-                    <?php
-                        foreach ($response as $project) {
-                            ?>
-                                <li class="project">
-                                    <a class="projectTitle" href="<?php print($project["html_url"]);?>">
-                                        <?php print(strtoupper($project["name"]));?>
+    <section id="projects">
+        <div class="container">
+            <div class="title aquamarine">&lt;projects /&gt;</div>
+            <div class="projectsWidgetArea">
+
+                <?php
+                    $side = 1;
+
+                    foreach ($response as $project): ?>
+                        <div class="<?php echo ($side == 1 ? 'left':'right'); ?>">
+                            <div class="projectWidget">
+                                <div class="projectTitle">
+                                    <a href="<?php echo $project["html_url"]; ?>" class="aquamarine">
+                                        &lt;<?php echo strtoupper($project['name']); ?>&gt;
                                     </a>
-                                    <div class="projectDescription">
+                                </div> 
+                                <div class="projectInfo">   
+                                    <div class="projectDesc">
                                         <?php
                                             if (!empty($project["description"])) {
-                                                print($project["description"]);
+                                                echo $project["description"];
                                             } else {
-                                                print("No description, website, or topics provided.");
+                                                echo "No description, website, or topics provided.";
                                             }
                                         ?>
                                     </div>
-                                    <div class="projectLanguage"><?php print($project["language"]);?></div>
-                                </li>
-                            <?php
-                        }
-                    ?>
-                </ul>
+                                    <div class="projectLanguage aquamarine"><?php echo $project['language']; ?></div>
+                                </div>        
+                            </div>        
+                        </div>
+                
+                <?php 
+                    $side *= -1;
+                    endforeach; 
+                ?>
+
             </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container">
-            <div class="contact">
-                <div class="social">        
-                    <div class="socialItem">
-                        <a href="<?php print($githubProfileLink);?>">
-                            <img src="assets/img/github.svg" alt="<?php print($githubUserName);?>">
-                        </a>
-                    </div>
-                    <div class="socialItem">
-                        <a href="<?php print($instagramProfileLink);?>">
-                            <img src="assets/img/instagram.svg" alt="<?php print("@".$instagramUserName);?>">
-                        </a>
-                    </div>
-                </div>
-                <div class="email"><?php print($email);?></div>
-            </div>
-        </div>
-    </footer>
+    <footer>© Gilberson Junior</footer>
 
-    <script type="text/javascript" src="./assets/js/footerAdjust.js"></script>
+    
+    <div class="social">
+        <a href="<?php echo $githubProfileLink; ?>"><i class="fab fa-github"></i></a>
+        <a href="<?php echo 'mailto:'.$email; ?>"><i class="far fa-envelope-open"></i></a>
+        <a href="<?php echo $instagramProfileLink; ?>"><i class="fab fa-instagram"></i></a>
+    </div>
+
+    <script src="assets/js/scroll.js"></script>
+    <script src="assets/js/homeHeight.js"></script>
+    <script src="assets/js/projectWidget.js"></script>
 </body>
 </html>
