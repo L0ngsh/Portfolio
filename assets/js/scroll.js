@@ -5,7 +5,7 @@ var allOffsets = new Array();
 links.forEach(l => {
     let id = l.getAttribute('href');
         
-    let targetOffset = document.querySelector(id).offsetTop;
+    let targetOffset = document.querySelector('section'+id).offsetTop;
 
     if (id == "#home") {
         targetOffset = 0;

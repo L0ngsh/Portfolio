@@ -3,7 +3,12 @@ session_start();
 
 require "config.php";
 
-if (empty($_SESSION["log"]) || !isset($_SESSION["log"])) {
+$fileCache = './cache.json';
+$currentCache = json_decode(file_get_contents($fileCache), true);
+
+$cache = array();
+
+if (time() - $currentCache['time'] > 60) {
     //Add information to the header to do a web request
     $context = stream_context_create(
         array(
@@ -13,10 +18,20 @@ if (empty($_SESSION["log"]) || !isset($_SESSION["log"])) {
         )
     );
 
-    //Make the web request to the API link and transform json format to an array
-    $_SESSION["log"] = json_decode(file_get_contents($githubApiLink, false, $context), true);
+    $newCache = array('time' => time(), 'log' => array());
 
+    //Make the web request to the API link and transform json format to an array
+    $newCache["log"] = json_decode(file_get_contents($githubApiLink, false, $context), true);
+
+    $cache = $newCache;
+
+    file_put_contents($fileCache, json_encode($newCache));
+
+
+
+} else {
+    $cache = $currentCache;
 }
 
-$response = $_SESSION["log"];
+$response = $cache['log'];
 ?>
