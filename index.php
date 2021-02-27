@@ -42,9 +42,6 @@ include "requestAPI.php";
                     </p>
                 </div>
             </div>
-            <div class="homePicture">
-                <img src="assets/img/dev.jpeg" alt="Gilberson Junior">
-            </div>
         </div>
     </section>
 
@@ -98,7 +95,6 @@ include "requestAPI.php";
     </div>
 
     <script src="assets/js/scroll.js"></script>
-    <script src="assets/js/homeHeight.js"></script>
     <script src="assets/js/projectWidget.js"></script>
 </body>
 </html>

@@ -94,8 +94,13 @@ ul {
 
 #home .container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    height: 100vh;
+}
+
+#projects .container {
+    margin-top: 40px;
 }
 
 .homeDescription {
@@ -105,19 +110,6 @@ ul {
 .homeDescription .desc {
     margin-top: 15px;
     font-size: 16px;
-}
-
-.homePicture {
-    max-width: 500px;
-    width: 100%;
-    height: auto;
-    border-right: 20px solid #1D1C22;
-    border-bottom: 20px solid #1D1C22;
-    margin-left: 100px;
-}
-
-.homePicture img {
-    width: 100%;
 }
 
 .homeDescription h2 {
@@ -192,6 +184,8 @@ footer {
     flex-direction: column;
     position: fixed;
     right: 15px;
+
+    top: 50vh;
 }
 
 .social a + a {
@@ -199,21 +193,8 @@ footer {
 }
 
 @media only screen and (max-width: 1100px) {
-    #home .container{
-        flex-direction: column;
-    }
-
     .homeDescription h2 {
         font-size: 42px;
-    }
-
-    .homePicture {
-        width: 700px;
-        max-width: none;
-        margin: 0;
-        margin-top: 20px;
-        border: 0;
-        top: 50%;
     }
 }
 
@@ -222,19 +203,10 @@ footer {
         width: 100%;
     }
 
-    #home .container{
-        flex-direction: column;
-        align-items: center;
-    }
-
     .homeDescription h2, #home .desc {
         text-align: center;
         max-width: 90%;
         margin: auto;
-    }
-
-    .homePicture {
-        max-width: 90%;
     }
 }
 
